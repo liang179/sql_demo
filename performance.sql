@@ -17,5 +17,7 @@ SELECT * FROM performance_schema.events_statements_summary_by_digest ORDER BY CO
 
 SELECT * FROM performance_schema.events_statements_summary_by_digest where query_sample_text like '%a4191f11-650a-11ef-bc26-0242ac120002%';
 
+SELECT * from performance_schema.events_statements_history;
+
 use performance_schema;
 show tables;
