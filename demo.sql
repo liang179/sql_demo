@@ -5,7 +5,10 @@ select database();
 
 SELECT COUNT(1) FROM employees;
 
-SELECT * FROM employees;
+select uuid();
+
+SELECT /*0400203c-650a-11ef-bc26-0242ac120002*/
+* FROM employees;
 
 SELECT * FROM employees WHERE emp_no = '10111';
 
@@ -15,9 +18,14 @@ show create table employees;
 
 show INDEX from employees;
 
+set profiling=1;
+set profiling=0;
 SELECT gender, count(1) FROM employees GROUP BY gender;
 
-EXPLAIN SELECT gender, count(1) FROM employees GROUP BY gender;
+show profiles;
+show profile;
+
+show profile for query 1;
 
 SELECT * from titles;
 
@@ -37,7 +45,8 @@ from employees t1
 WHERE
     t1.emp_no = t2.emp_no;
 
-select *
+select /*a4191f11-650a-11ef-bc26-0242ac120002*/
+*
 from (
         select ROW_NUMBER() OVER (
                 PARTITION BY
