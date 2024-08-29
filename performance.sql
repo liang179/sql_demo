@@ -1,4 +1,4 @@
--- Active: 1724584727501@@127.0.0.1@3306
+-- Active: 1724919531732@@127.0.0.1@3306
 select * from performance_schema.setup_instruments;
 
 select * from performance_schema.setup_instruments where NAME LIKE 'wait%';
@@ -11,6 +11,12 @@ SELECT * from performance_schema.events_waits_history;
 SELECT * from performance_schema.events_waits_history_long;
 
 select * from performance_schema.processlist;
+
+show full processlist;
+
+kill 17;
+
+SELECT * FROM performance_schema.threads;
 
 -- 最多执行情况
 SELECT * FROM performance_schema.events_statements_summary_by_digest ORDER BY COUNT_STAR DESC;

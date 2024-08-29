@@ -1,4 +1,4 @@
--- Active: 1724584727501@@127.0.0.1@3306@employees
+-- Active: 1724919203912@@127.0.0.1@3306@employees
 select version();
 
 select database();
@@ -8,7 +8,7 @@ SELECT COUNT(1) FROM employees;
 select uuid();
 
 SELECT /*0400203c-650a-11ef-bc26-0242ac120002*/
-* FROM employees;
+sleep(1),t1.* FROM employees t1 limit 10;
 
 SELECT * FROM employees WHERE emp_no = '10111';
 
