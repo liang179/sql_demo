@@ -1,3 +1,4 @@
+-- Active: 1726061067748@@127.0.0.1@3306@employees
 create or replace view V_test
 as
 SELECT
@@ -12,3 +13,5 @@ SELECT
 FROM performance_schema.events_statements_summary_by_digest
 ORDER BY sum_timer_wait DESC
 LIMIT 10;
+
+SELECT * from `V_test`;
