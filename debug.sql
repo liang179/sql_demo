@@ -1,7 +1,7 @@
 -- Active: 1726061067748@@127.0.0.1@3306@employees
 select uuid();
 
-select /*a4191f11-650a-11ef-bc26-0242ac120002*/
+select /*f2c84a14-7072-11ef-a6dc-0242ac120002-3*/
 *
 from (
         select ROW_NUMBER() OVER (
@@ -17,6 +17,10 @@ from (
 where
     t3.title_no = 1;
 
-SELECT * FROM performance_schema.events_statements_summary_by_digest where query_sample_text like '%a4191f11-650a-11ef-bc26-0242ac120002%';
+SELECT * FROM performance_schema.events_statements_summary_by_digest where query_sample_text like '%f2c84a14-7072-11ef-a6dc-0242ac120002%';
 
-SELECT * from performance_schema.events_statements_history where `SQL_TEXT` like '%a4191f11-650a-11ef-bc26-0242ac120002%';
+SELECT * from performance_schema.events_statements_history where `SQL_TEXT` like '%f2c84a14-7072-11ef-a6dc-0242ac120002%';
+
+SELECT * from performance_schema.events_statements_history_long where `SQL_TEXT` like '%f2c84a14-7072-11ef-a6dc-0242ac120002%';
+
+SELECT * FROM `V_statements_history` where `SQL_TEXT` like '%f2c84a14-7072-11ef-a6dc-0242ac120002%';
