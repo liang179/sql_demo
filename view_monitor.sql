@@ -1,3 +1,4 @@
+-- Active: 1726061067748@@127.0.0.1@3306@employees
 create or replace view V_statements_digest
 as
 SELECT
@@ -11,7 +12,8 @@ SELECT
     ) as timer_wait,
     count_star
 FROM performance_schema.events_statements_summary_by_digest
-WHERE `SCHEMA_NAME`='employees';
+WHERE `SCHEMA_NAME`='employees'
+ORDER BY sum_timer_wait DESC;
 
 SELECT * from `V_statements_digest`;
 

@@ -1,4 +1,4 @@
--- Active: 1724919531732@@127.0.0.1@3306
+-- Active: 1726061067748@@127.0.0.1@3306@demo
 select * from performance_schema.setup_instruments;
 
 select * from performance_schema.setup_instruments where NAME LIKE 'wait%';
@@ -24,6 +24,8 @@ SELECT * FROM performance_schema.events_statements_summary_by_digest ORDER BY CO
 SELECT * FROM performance_schema.events_statements_summary_by_digest where query_sample_text like '%a4191f11-650a-11ef-bc26-0242ac120002%';
 
 SELECT * from performance_schema.events_statements_history;
+
+show variables like 'performance_schema_events_statements_history%';
 
 use performance_schema;
 show tables;
