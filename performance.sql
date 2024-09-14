@@ -1,8 +1,8 @@
 -- Active: 1726061067748@@127.0.0.1@3306@demo
 select * from performance_schema.setup_instruments;
 
-select * from performance_schema.setup_instruments where NAME LIKE 'wait%';
-update performance_schema.setup_instruments set enabled='YES', TIMED='YES' where name like 'wait%';
+select * from performance_schema.setup_instruments where NAME LIKE '%long%';
+update performance_schema.setup_instruments set enabled='YES', TIMED='YES' where name like '%long%';
 
 SELECT * from performance_schema.events_waits_current;
 
@@ -26,6 +26,10 @@ SELECT * FROM performance_schema.events_statements_summary_by_digest where query
 SELECT * from performance_schema.events_statements_history;
 
 show variables like 'performance_schema_events_statements_history%';
+
+SELECT * FROM performance_schema.events_statements_current;
+
+SELECT * FROM performance_schema.events_transactions_current;
 
 use performance_schema;
 show tables;
