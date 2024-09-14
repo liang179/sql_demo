@@ -2,8 +2,16 @@
 select * from performance_schema.setup_instruments;
 
 select * from performance_schema.setup_instruments where NAME LIKE '%long%';
-update performance_schema.setup_instruments set enabled='YES', TIMED='YES' where name like '%long%';
+update performance_schema.setup_instruments set enabled='YES', TIMED='YES' where name like '%wait%';
 
+
+UPDATE performance_schema.setup_instruments
+SET ENABLED = 'YES', TIMED = 'YES'
+WHERE NAME LIKE 'wait/%';
+
+UPDATE performance_schema.setup_consumers
+SET ENABLED = 'YES'
+WHERE NAME LIKE 'events_waits%';
 SELECT * from performance_schema.events_waits_current;
 
 SELECT * from performance_schema.events_waits_history;
