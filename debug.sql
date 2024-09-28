@@ -1,7 +1,7 @@
 -- Active: 1726061067748@@127.0.0.1@3306@employees
 select uuid();
 
-select /*a29be562-727a-11ef-91a5-0242ac120002-5*/
+select /*a29be562-727a-11ef-91a5-0242ac120002-7*/
 *
 from (
         select ROW_NUMBER() OVER (
@@ -26,4 +26,12 @@ SELECT * from performance_schema.events_statements_history_long where `SQL_TEXT`
 
 SELECT * FROM `V_statements_history` where `SQL_TEXT` like '%a29be562-727a-11ef-91a5-0242ac120002%';
 
-SELECT * FROM performance_schema.events_waits_history WHERE `THREAD_ID`=48;
+UPDATE performance_schema.setup_instruments
+SET ENABLED = 'YES', TIMED = 'YES'
+WHERE NAME LIKE 'wait/%';
+
+UPDATE performance_schema.setup_consumers
+SET ENABLED = 'YES'
+WHERE NAME LIKE 'events_waits%';
+
+SELECT * FROM performance_schema.events_waits_history_long WHERE `THREAD_ID`=48;

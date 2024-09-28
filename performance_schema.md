@@ -359,7 +359,7 @@ SELECT EVENT_ID,sql_text FROM events_statements_history WHERE sql_text LIKE '%co
 --12-2、查看每个阶段的时间消耗
 SELECT event_id,EVENT_NAME,SOURCE,TIMER_END - TIMER_START FROM events_stages_history_long WHERE NESTING_EVENT_ID = 1553;
 --12-3、查看每个阶段的锁等待情况
-SELECT event_id,event_name,source,timer_wait,object_name,index_name,operation,nesting_event_id FROM events_waits_history_longWHERE nesting_event_id = 1553;
+SELECT event_id,event_name,source,timer_wait,object_name,index_name,operation,nesting_event_id FROM events_waits_history_long WHERE nesting_event_id = 1553;
 ```
 
 
